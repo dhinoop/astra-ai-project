@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Astra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button id="new-chat-btn" class="new-chat-btn">+ New chat</button>
+      </div>
+      <ul id="chat-list" class="chat-list"></ul>
+      <div class="sidebar-footer">
+        <small>ASTRA v1</small>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="main">
+      <header class="topbar">
+        <h1 class="title">Astra</h1>
+        <div class="modes">
+          <button class="mode-btn active" data-mode="text">Text</button>
+          <button class="mode-btn" data-mode="audio">Audio</button>
+          <button class="mode-btn" data-mode="video">Video</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages"></section>
+
+      <footer class="composer">
+        <div class="composer-inner">
+          <textarea id="prompt-input" placeholder="Message Astra..." rows="1"></textarea>
+          <button id="send-btn" class="send-btn">Send</button>
+        </div>
+        <p class="disclaimer">Astra may make mistakes. Consider checking important information.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader-overlay" class="loader hidden">
+    <!-- Moon loader for video mode -->
+    <video id="loader-video" autoplay muted loop playsinline class="hidden" width="120" height="120">
+      <source src="{{ url_for('static', filename='img/moon.webm') }}" type="video/webm">
+    </video>
+
+   <!-- Loader -->
+<div id="loader-overlay" class="loader hidden">
+  <!-- Moon loader for video mode only -->
+  <video id="loader-video" autoplay muted loop playsinline class="hidden" width="120" height="120">
+    <source src="{{ url_for('static', filename='img/moon.webm') }}" type="video/webm">
+  </video>
+</div>
+
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
