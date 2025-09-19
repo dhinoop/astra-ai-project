@@ -1,130 +1,116 @@
-# 🌙 Astra AI – Multimodal Conversational Assistant
+# 🌙 Astra AI Project
 
-Astra is a **Flask-based AI assistant** powered by **Ollama (LLaMA 3)** for local text generation, **gTTS** for speech synthesis, and **D-ID** for avatar video generation.  
-It supports **three modes of response**:  
-1. 📝 **Text**  
-2. 🔊 **Audio**  
-3. 🎥 **Video with talking avatar**  
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green)](https://flask.palletsprojects.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/dhinoop/astra-ai-project?style=social)](https://github.com/dhinoop/astra-ai-project/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/dhinoop/astra-ai-project?style=social)](https://github.com/dhinoop/astra-ai-project/network/members)
+
+Astra AI is an intelligent assistant built with **Flask** and **Generative AI** integration.  
+It provides interactive responses via text, audio, and video modes, making it versatile for real-time AI experiences.  
 
 ---
 
-## ⚡ Features
-- Local **chat response** via [Ollama](https://ollama.com/) (LLaMA 3 model).  
-- **Text-to-Speech** using [gTTS](https://pypi.org/project/gTTS/).  
-- **Talking avatar video** generation with [D-ID API](https://d-id.com/).  
-- Simple **Flask web UI** with real-time responses.  
-- Organized project structure with static assets and templates.  
+## 🚀 Features
+- 📝 **Text Mode** – Get instant AI-powered answers.  
+- 🔊 **Audio Mode** – Listen to responses with natural TTS (Text-to-Speech).  
+- 🎥 **Video Mode** – Lip-synced avatar responses using AI-powered video generation.  
+- 🌐 **Web Interface** – Simple Flask app with HTML templates and static assets.  
+
+---
+
+## 🛠️ Tech Stack
+- **Backend:** Flask (Python)  
+- **Frontend:** HTML, CSS, JavaScript (templates + static files)  
+- **AI/ML:** Generative AI APIs / models (LLM, gTTS, D-ID)  
+- **Other Tools:** Git, Virtualenv, Python dependencies  
 
 ---
 
 ## 📂 Project Structure
 ```
-ASTRA_AI-PROJECT/
-│── app.py                # Flask backend (Ollama + gTTS + D-ID)
-│── requirements.txt       # Python dependencies
-│── README.md              # Project documentation
-│── .gitignore             # Ignore venv, cache, media files
-│
-├── static/
-│   ├── css/               # Stylesheets
-│   ├── js/                # Frontend JS
-│   ├── img/               # UI images
-│   ├── audio/             # Generated speech files
-│   └── video/             # Generated video files
-│
-├── templates/
-│   └── index.html         # Frontend UI
-│
-└── output/                # Optional outputs
+Astra-AI-Project/
+│── app.py              # Main Flask application
+│── requirements.txt    # Python dependencies
+│── README.md           # Project documentation
+│── .gitignore          # Ignored files (venv, cache, etc.)
+│── static/             # CSS, JS, images, audio, video
+│   └── screenshots/    # Screenshots for README
+│   └── video/          # Demo video
+│── templates/          # HTML templates
 ```
 
 ---
 
-## 🔧 Installation & Setup
+## ⚙️ Installation & Setup
 
-### 1. Clone repo
-```bash
-git clone https://github.com/yourusername/astra-ai.git
-cd astra-ai
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/dhinoop/astra-ai-project.git
+   cd astra-ai-project
+   ```
 
-### 2. Create & activate virtual environment
-```bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Linux / macOS
-source venv/bin/activate
-```
+2. **Create & activate a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Mac/Linux
+   venv\Scripts\activate      # On Windows
+   ```
 
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 4. Install & run Ollama
-- [Download Ollama](https://ollama.com/download)  
-- Pull LLaMA 3 model:
-```bash
-ollama pull llama3
-```
-- Run Ollama server:
-```bash
-ollama serve
-```
-
-### 5. Set up environment variables
-Create a `.env` file:
-```ini
-DID_API_KEY=your_did_api_key   # Base64 encoded Basic Auth key
-```
-
-On Windows (PowerShell):
-```powershell
-setx DID_API_KEY "your_base64_basic_auth_value"
-```
-
-On Linux/macOS:
-```bash
-export DID_API_KEY="your_base64_basic_auth_value"
-```
+4. **Run the Flask app**
+   ```bash
+   python app.py
+   ```
+   Visit: `http://127.0.0.1:5000/`
 
 ---
 
-## ▶️ Run the app
-```bash
-python app.py
-```
+## 🎥 Video Mode (with D-ID API)
 
-App will be available at: **http://localhost:5000/**
+Astra AI integrates the **[D-ID API](https://www.d-id.com/)** to generate **lip-synced avatar videos**.  
+- Uses **D-ID’s default avatar** for video responses.  
+- AI responses are first converted into speech using **gTTS (Google Text-to-Speech)**.  
+- The generated audio is sent to the **D-ID API**, which returns a talking video.  
+- The video is then displayed in the Flask web interface under the **Video Mode** option.  
 
----
-
-## 💡 Usage
-- Enter your **prompt** in the UI.  
-- Select a response **mode**:
-  - `Text` → plain response.  
-  - `Audio` → response with generated MP3 speech.  
-  - `Video` → D-ID generated talking avatar.  
+⚠️ **Note:** This requires a valid **D-ID API key**. Add your key in the project configuration before running the app.  
 
 ---
 
-## 📦 Requirements
-- Python 3.8+  
-- Flask  
-- gTTS  
-- Requests  
-- Ollama (with LLaMA 3 pulled)  
-- D-ID API key (for video mode)  
+## 📸 Demo
+
+### 📝 Text Mode  
+![Text Mode](static/screenshots/text_mode.png)  
+
+### 🔊 Audio Mode  
+![Audio Mode](static/screenshots/audio_mode.png)  
+
+### 🎥 Video Mode (with D-ID Avatar)  
+![Video Mode](static/screenshots/video_mode.png)  
+
+▶️ **Full Demo Video:**  
+[![Watch the demo](static/screenshots/video_mode.png)](static/video/demo.mp4)  
+
+*(Replace these placeholders with your actual screenshots and demo video)*
 
 ---
 
-## 🚀 Future Improvements
-- Replace D-ID with **local lip-sync (Wav2Lip)**.  
-- Add **multimodal input (voice prompts, image understanding)**.  
-- Deploy on **Docker** for portability.  
+## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
 
 ---
 
-## 📝 License
-MIT License. Free to use & modify.  
+## 📜 License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.  
+
+---
+
+## 👨‍💻 Author
+**Dhinoop Baiju**  
+- 🌐 [LinkedIn](https://linkedin.com/in/dhinoop-baiju)  
+- 💻 [GitHub](https://github.com/dhinoop)  
