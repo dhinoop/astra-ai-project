@@ -93,7 +93,7 @@ Astra AI integrates the **[D-ID API](https://www.d-id.com/)** to generate **lip-
 ### 🎥 Video Mode (with D-ID Avatar)  
 ![Video Mode](static/screenshots/video_mode.png)  
 
-▶️ **Full Demo Video:**  
+▶️ **Lip-synced Demo Video:**  
 [![Watch the demo](static/screenshots/video_mode.png)](static/video/demo.mp4)  
 
 *(Replace these placeholders with your actual screenshots and demo video)*
